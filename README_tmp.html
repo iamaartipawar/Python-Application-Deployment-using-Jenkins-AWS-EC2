@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="%F0%9F%9A%80-python-application-deployment-using-jenkins--aws-ec2"><strong>🚀 Python Application Deployment using Jenkins &amp; AWS EC2</strong></h1>
+<h2 id="%F0%9F%93%8C-project-overview"><strong>📌 Project Overview</strong></h2>
+<p>This project demonstrates the automated deployment of a Python application using Jenkins CI/CD Pipeline and AWS EC2.</p>
+<p>The pipeline automatically fetches the application code from GitHub, sets up the Python environment, installs dependencies, validates the application, deploys it to a target EC2 server, starts the application, and performs a health check.</p>
+<p>This project provides hands-on experience with Jenkins Pipeline, GitHub integration, AWS EC2, Python, Linux, and CI/CD automation. It helped me understand how DevOps tools work together to automate the application deployment process and ensure a reliable and repeatable deployment workflow.</p>
+<h2 id="%F0%9F%8F%97%EF%B8%8F-architecture"><strong>🏗️ Architecture</strong></h2>
+<pre class="hljs"><code><div>GitHub Repository
+        ↓
+     Jenkins
+        ↓
+  CI/CD Pipeline
+        ↓
+   Target EC2
+        ↓
+ Python Application
+        ↓
+ Application Verification
+
+</div></code></pre>
+<p align="center">
+  <img src="file:///c:/Workspace/DevOps/Jenkins/Python application deployment/images/Architec.png" width="700">
+</p>
+<h2 id="%F0%9F%94%84-jenkins-pipeline-stages"><strong>🔄 Jenkins Pipeline Stages</strong></h2>
+<p>The Jenkins pipeline contains the following stages:</p>
+<ol>
+<li><strong>Checkout</strong> – Fetches the Python application from GitHub.</li>
+<li><strong>Install Python</strong> – Installs/configures Python on the target server.</li>
+<li><strong>Create Virtual Environment</strong> – Creates an isolated Python environment.</li>
+<li><strong>Install Dependencies</strong> – Installs the required Python packages.</li>
+<li><strong>Build / Validate</strong> – Validates the application before deployment.</li>
+<li><strong>Deploy to Target Server</strong> – Deploys the application to AWS EC2.</li>
+<li><strong>Setup Application on Target</strong> – Configures the application on the target server.</li>
+<li><strong>Start Application</strong> – Starts the Python application.</li>
+<li><strong>Verify Application</strong> – Performs a health check to verify the application.</li>
+<li><strong>Post Actions</strong> – Displays the deployment completion status.</li>
+</ol>
+<p align="center">
+  <img src="file:///c:/Workspace/DevOps/Jenkins/Python application deployment/images/4.png" width="700">
+</p>
+<pre class="hljs"><code><div>Github Repo URL: https://github.com/iamaartipawar/Python-application
+</div></code></pre>
+<p align="center">
+  <img src="file:///c:/Workspace/DevOps/Jenkins/Python application deployment/images/1.png" width="700">
+</p>
+<pre class="hljs"><code><div>The deployment completion status.
+</div></code></pre>
+<h2 id="%F0%9F%9B%A0%EF%B8%8F-technologies-used"><strong>🛠️ Technologies Used</strong></h2>
+<ul>
+<li><strong>AWS EC2</strong></li>
+<li><strong>Jenkins</strong></li>
+<li><strong>Git &amp; GitHub</strong></li>
+<li><strong>Python</strong></li>
+<li><strong>Linux</strong></li>
+<li><strong>CI/CD</strong></li>
+<li><strong>Shell Scripting</strong></li>
+</ul>
+<h2 id="%E2%98%81%EF%B8%8F-aws-infrastructure"><strong>☁️ AWS Infrastructure</strong></h2>
+<h3 id="jenkins-master">Jenkins Master</h3>
+<p>Jenkins is hosted on an AWS EC2 instance and is responsible for executing the CI/CD pipeline.</p>
+<h3 id="target-server">Target Server</h3>
+<p>A separate AWS EC2 instance is used as the target server where the Python application is deployed and executed.</p>
+<p align="center">
+  <img src="file:///c:/Workspace/DevOps/Jenkins/Python application deployment/images/5.png" width="700">
+</p>
+<h2 id="%E2%9C%85-deployment-result"><strong>✅ Deployment Result</strong></h2>
+<p>The Jenkins pipeline completed successfully with all stages passing.</p>
+<p><strong>Build Status:</strong> <code>SUCCESS</code> ✅</p>
+<p align="center">
+  <img src="file:///c:/Workspace/DevOps/Jenkins/Python application deployment/images/2.png" width="700">
+</p>
+<p align="center">
+  <img src="file:///c:/Workspace/DevOps/Jenkins/Python application deployment/images/3.png" width="700">
+</p><h2 id="run-application-on-browser"><strong>Run Application On Browser</strong></h2>
+<ul>
+<li>Target-Server IP:500</li>
+</ul>
+<p align="center">
+  <img src="file:///c:/Workspace/DevOps/Jenkins/Python application deployment/images/6.png" width="700">
+</p>
+<p>The Python application was successfully deployed and verified on the target EC2 server.</p>
+<h2 id="%F0%9F%8E%AF-key-learnings"><strong>🎯 Key Learnings</strong></h2>
+<p>Through this project, I gained practical experience in:</p>
+<ul>
+<li>Creating Jenkins Declarative Pipelines</li>
+<li>Integrating GitHub with Jenkins</li>
+<li>Automating application deployment</li>
+<li>Working with AWS EC2 instances</li>
+<li>Managing Python virtual environments</li>
+<li>Installing application dependencies</li>
+<li>Performing application health checks</li>
+<li>Understanding CI/CD workflow</li>
+</ul>
+<h2 id="%F0%9F%93%8C-project-overview-1"><strong>📌 Project Overview</strong></h2>
+<p>This project demonstrates the automated deployment of a Python application using Jenkins and AWS EC2. The application source code is managed through GitHub, while Jenkins automates the complete CI/CD process—from code checkout and Python environment setup to dependency installation, validation, deployment, application startup, and health verification on the target EC2 server.</p>
+<p>The project provides hands-on experience with Jenkins Pipeline, GitHub, AWS EC2, Python, Linux, and CI/CD automation, showing how a Python application can be deployed efficiently through an automated DevOps workflow.</p>
+<p><strong>👩‍💻 Author: Aarti Pawar | Aspiring DevOps Engineer</strong></p>
+
+</body>
+</html>
